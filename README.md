@@ -44,24 +44,27 @@ This simple program demonstrates how to calculate the sum of integers from 1 to 
 riscv64-unknown-elf-gcc -O1 -march=rv64i -mabi=lp64 -o sum_1_to_n.o sum_1_to_n.c
 ```
 
+![image](https://github.com/user-attachments/assets/cc472e8b-de8f-4c34-899c-f9754cbd47af)
 
-Screenshot 2024-12-21 195400
 
-Viewed the assembly code generated for the program. Used the objdump command to disassemble the object file
+Viewed the assembly code generated for the program. Used the objdump command to disassemble the object file.  Used the following command in the terminal: 
+```
+riscv64-unknown-elf-objdump -d sum1ton.o
+```
 
-Screenshot 2024-12-21 195549
+![image](https://github.com/user-attachments/assets/323a73cd-dec4-4220-844e-babe39a0526a)
 
 This will output a list of assembly instructions. The code may be long, so you can pipe it to less for easier navigation:
 
-Screenshot 2024-12-21 195719
-
-Screenshot 2024-12-21 195719
-
 Since the output contained a large amount of assembly code, i need to found the section related to the main function. To do this, press / to search within less, and type main to jump to the main function's assembly code. Press n to move through occurrences until you find the correct section.
+
+![image](https://github.com/user-attachments/assets/1c0336a7-9ca2-4882-97d3-328ce5766b12)
+
 
 Once found, I will see the address of the main function, which will look like this:
 
-Screenshot 2024-12-21 195914
+![image](https://github.com/user-attachments/assets/d2b5afed-e423-4c11-8dcc-d08ef0c19956)
+
 
 Focused on the assembly instructions generated. I saw a series of instructions that correspond to the operations in your C program.
 Determined the Number of Instructions to calculate the number of instructions in the main function:
