@@ -10,5 +10,78 @@ The program is based on the RISC-V architecture and uses open-source tools to te
 
 <details>
  <summary> Task 1 : Task is to refer to C based and RISCV based lab videos and execute the task of compiling the C code using gcc and riscv compiler </summary> 
-  C Language Based Lab
+
+ ## C Language Based Lab
+ In this lab, I have created a simple C program that calculates the sum of integers from 1 to a given number, n.
+Started by typing the following command in the terminal to make sure that i am in the home directory
+Next, I have written my C program. Opened an editor, for example leafpad, and create a new file called sum1ton.c
+Wrote the code for the sum of numbers from 1 to n
+
+![Screenshot 2025-01-04 193219](https://github.com/user-attachments/assets/2909c488-715c-44dc-be5a-1b39873795ba)
+
+
+Once the code was written, saved the file and close the editor.
+To compile the program, used the gcc command. Ran the following in the terminal:
+Executed the compiled program to see the result:
+The sum of numbers from 1 to 5 is 5050, which matches the expected result
+
+![Screenshot 2025-01-04 203234](https://github.com/user-attachments/assets/e6ba9e17-fd8d-4a55-9ff6-312937e1d4a6)
+
+
+Modified the Program I can change the value of n to test the program with different numbers. For example, change n = 5 to n = 55 and recompile
+
+![image](https://github.com/user-attachments/assets/ea089d83-e40c-4652-a421-574de48fd729)
+
+
+Then saved the file and re-ran the compilation and execution steps.
+This simple program demonstrates how to calculate the sum of integers from 1 to n using a for loop. I can now experiment with different values of n and observed the results.
+
+![image](https://github.com/user-attachments/assets/12d47dbf-8725-4114-a727-f8395387fc00)
+
+## RISCV Based Lab
+ In this lab,I took the C program that calculates the sum of integers from 1 to n and run it using a RISC-V simulator. I first compiled it with the RISC-V GCC compiler, explored the assembly code generated, and analyze the instructions. Here’s a step-by-step guide to executing this task. First, ensured that the C program I wrote in the previous lab is saved. Now, compiled it using the RISC-V GCC compiler. Used the following command in the terminal: 
+```
+riscv64-unknown-elf-gcc -O1 -march=rv64i -mabi=lp64 -o sum_1_to_n.o sum_1_to_n.c
+```
+
+
+Screenshot 2024-12-21 195400
+
+Viewed the assembly code generated for the program. Used the objdump command to disassemble the object file
+
+Screenshot 2024-12-21 195549
+
+This will output a list of assembly instructions. The code may be long, so you can pipe it to less for easier navigation:
+
+Screenshot 2024-12-21 195719
+
+Screenshot 2024-12-21 195719
+
+Since the output contained a large amount of assembly code, i need to found the section related to the main function. To do this, press / to search within less, and type main to jump to the main function's assembly code. Press n to move through occurrences until you find the correct section.
+
+Once found, I will see the address of the main function, which will look like this:
+
+Screenshot 2024-12-21 195914
+
+Focused on the assembly instructions generated. I saw a series of instructions that correspond to the operations in your C program.
+Determined the Number of Instructions to calculate the number of instructions in the main function:
+Look at the address of the first instruction in the main function (e.g., 10184).
+Look at the address of the next instruction after the main function ends (e.g., 101C0).
+Since each instruction occupies 4 bytes in RISC-V, you can calculate the total number of instructions by subtracting the starting address of the next instruction from the address of the main function and dividing by 4.
+For example:
+101C0 - 10184 = 0x3C (or 60 in decimal).
+Divided by 4 (since each instruction is 4 bytes):
+60 / 4 = 15 instructions.
+So, there are 15 instructions in the main function.
+Confirmed the Calculation, you can confirm that the addresses increase by 4 bytes as you examine the assembly code. For example, after address 0x10184, the next instruction will be at 0x10188, then 0x1018C, and so on.
+
+Conclusion
+This exercise allowed me to:
+
+Compile a C program for the RISC-V architecture using the RISC-V GCC compiler.
+Disassemble the object file to view the generated assembly code.
+Analyzed the instructions in the main function and calculate the number of instructions.
+By modifying the compiler optimization options (e.g., -O1, -O2, -O3), you can observe how the generated assembly code changes. Make sure to research what each optimization option does to understand the impact on the assembly code.
 </details>
+
+
