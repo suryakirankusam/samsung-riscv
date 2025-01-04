@@ -8,3 +8,7 @@ The program is based on the RISC-V architecture and uses open-source tools to te
 **GitHub Profile**: https://github.com/suryakirankusam                                                                                                                                                                                
 **LinkedIN Profile**: https://www.linkedin.com/in/suryakirankusam 
 
+<details>
+ <summary> Task 1 : Task is to refer to C based and RISCV based lab videos and execute the task of compiling the C code using gcc and riscv compiler </summary> 
+  C Language Based Lab
+</details>
