@@ -237,6 +237,26 @@ Let's walk through the disassembled code and extract 15 unique RISC-V instructio
 
 ### Disassembled Code:
 
+
+```
+21138: 03800793 li      a5, 56
+2113c: 00f55733 srl     a4, a0, a5
+21140: Off77713 andi    a4,a4,255
+21144: 00071663 bnez    a4,21150 <_clzdi2+0x18>
+21148: ff878793 addi    a5,a5,-8
+2114c: fe0798e3 bnez    a5, 2113c <_clzdi2+0x4>
+21150: 04000713 li      a4,64
+21154: 40f70733 sub     a4,a4,a5
+21158: 00f557b3 srl     a5,a0,a5
+2115c: 00001517 auipc   a0, 0x1
+21160: cc450513 addi    20,20,-828 # 21e20 <_clz_tab>
+21164: 00f507b3 add     a5, a0, a5
+21168: 0007c503 lbu     20, 0(a5)
+2116c: 40a7053b subw    a0, a4, a0
+21170: 00008067 ret
+```
+
+
 ### Instructions and 32-bit Codes:
 
 1. **`li a5, 56`**  
