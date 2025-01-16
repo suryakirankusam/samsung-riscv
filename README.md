@@ -232,4 +232,108 @@ imm[10:1] (30:21) lower bits of the immediate value which are also part of the t
 
 imm(1 bit) this bit is included to help with sign extension when calculating the jump address .
 
+
+Let's walk through the disassembled code and extract 15 unique RISC-V instructions from the `riscv-objdump` output you provided. We'll determine their 32-bit instruction code and their corresponding instruction types.
+
+### Disassembled Code:
+
+### Instructions and 32-bit Codes:
+
+1. **`li a5, 56`**  
+   - **Hex Code**: `03800793`
+   - **Binary**: `00000000001110000000011110010011`
+   - **Instruction Type**: **I-type** (Load Immediate)
+
+2. **`srl a4, a0, a5`**  
+   - **Hex Code**: `00f55733`
+   - **Binary**: `00000000011101010001011100110011`
+   - **Instruction Type**: **R-type** (Shift)
+
+3. **`andi ...`**  
+   - **Hex Code**: `Off77713`
+   - **Binary**: `11111111011101110011011100010011`
+   - **Instruction Type**: **I-type** (Immediate)
+
+4. **`bnez ...`**  
+   - **Hex Code**: `00071663`
+   - **Binary**: `00000000000001110011011000110011`
+   - **Instruction Type**: **B-type** (Branch)
+
+5. **`addi ...`**  
+   - **Hex Code**: `ff878793`
+   - **Binary**: `11111111011110000111110010010011`
+   - **Instruction Type**: **I-type** (Immediate)
+
+6. **`bnez ...`**  
+   - **Hex Code**: `fe0798e3`
+   - **Binary**: `11111110000001110011100011100011`
+   - **Instruction Type**: **B-type** (Branch)
+
+7. **`li a4, 255`**  
+   - **Hex Code**: `04000713`
+   - **Binary**: `00000000010000000000000010010011`
+   - **Instruction Type**: **I-type** (Load Immediate)
+
+8. **`sub ...`**  
+   - **Hex Code**: `40f70733`
+   - **Binary**: `01000000111101110000000010110011`
+   - **Instruction Type**: **R-type** (Arithmetic)
+
+9. **`srl ...`**  
+   - **Hex Code**: `00f557b3`
+   - **Binary**: `00000000011101010001011110110011`
+   - **Instruction Type**: **R-type** (Shift)
+
+10. **`auipc a0, 0x1`**  
+    - **Hex Code**: `00001517`
+    - **Binary**: `00000000000000010101000100010001`
+    - **Instruction Type**: **U-type** (Upper Immediate)
+
+11. **`addi ...`**  
+    - **Hex Code**: `cc450513`
+    - **Binary**: `11001100010001010000010100010011`
+    - **Instruction Type**: **I-type** (Immediate)
+
+12. **`add a5, a0, a5`**  
+    - **Hex Code**: `00f507b3`
+    - **Binary**: `00000000011101010001011110110011`
+    - **Instruction Type**: **R-type** (Arithmetic)
+
+13. **`lbu 20, 0(a5)`**  
+    - **Hex Code**: `0007c503`
+    - **Binary**: `00000000000001111100000010000011`
+    - **Instruction Type**: **I-type** (Load)
+
+14. **`subw a0, a4, a0`**  
+    - **Hex Code**: `40a7053b`
+    - **Binary**: `01000000101001110000010110011111`
+    - **Instruction Type**: **R-type** (Word Arithmetic)
+
+15. **`ret`**  
+    - **Hex Code**: `00008067`
+    - **Binary**: `00000000000000000000000111000111`
+    - **Instruction Type**: **I-type** (Return)
+
+### Summary:
+
+Here are the 15 unique RISC-V instructions and their corresponding 32-bit opcodes:
+
+1. `li a5, 56` → `03800793`  
+2. `srl a4, a0, a5` → `00f55733`  
+3. `andi ...` → `Off77713`  
+4. `bnez ...` → `00071663`  
+5. `addi ...` → `ff878793`  
+6. `bnez ...` → `fe0798e3`  
+7. `li a4, 255` → `04000713`  
+8. `sub ...` → `40f70733`  
+9. `srl ...` → `00f557b3`  
+10. `auipc a0, 0x1` → `00001517`  
+11. `addi ...` → `cc450513`  
+12. `add a5, a0, a5` → `00f507b3`  
+13. `lbu 20, 0(a5)` → `0007c503`  
+14. `subw a0, a4, a0` → `40a7053b`  
+15. `ret` → `00008067`
+
+Each instruction is decoded based on its respective opcode, instruction type, and format.
+
 </details>
